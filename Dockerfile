@@ -1,5 +1,5 @@
-FROM alpine:latest
-RUN apk add --no-cache android-tools
+FROM alpine:edge
+RUN apk --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ add android-tools
 ENTRYPOINT ["sh"]
 
 
