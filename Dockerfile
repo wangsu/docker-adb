@@ -1,6 +1,9 @@
 FROM alpine:edge
 RUN apk --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ add android-tools
+RUN mkdir -p /root/.android
+EXPOSE 5037
 ENTRYPOINT ["sh"]
+# Expose default ADB port
 
 
 
@@ -30,8 +33,7 @@ ENTRYPOINT ["sh"]
 #    /usr/local/bin/update-platform-tools.sh
 #RUN /usr/local/bin/update-platform-tools.sh
 
-# Expose default ADB port
-#EXPOSE 5037
+
 
 # Set up PATH
 #ENV PATH $PATH:/opt/platform-tools
