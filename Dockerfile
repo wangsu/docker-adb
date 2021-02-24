@@ -2,9 +2,12 @@ FROM alpine:3.6
 
 # Set up insecure default key
 RUN mkdir -m 0750 /root/.android
-ADD files/insecure_shared_adbkey /root/.android/adbkey
-ADD files/insecure_shared_adbkey.pub /root/.android/adbkey.pub
-ADD files/update-platform-tools.sh /usr/local/bin/update-platform-tools.sh
+WORKDIR /src
+COPY [".", "/src"]
+
+ADD /src/files/insecure_shared_adbkey /root/.android/adbkey
+ADD /src/files/insecure_shared_adbkey.pub /root/.android/adbkey.pub
+ADD /src/files/update-platform-tools.sh /usr/local/bin/update-platform-tools.sh
 
 RUN set -xeo pipefail && \
     apk update && \
