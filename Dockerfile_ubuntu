@@ -6,4 +6,4 @@ RUN apt-get install -y android-tools-adb jq
 RUN mkdir -p /root/.android
 
 EXPOSE 5037
-ENTRYPOINT ["sh"]
+ENTRYPOINT ["/bin/bash"]
